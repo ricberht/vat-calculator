@@ -36,15 +36,15 @@ function getExcludingVat(float $value, float $percentage, bool $formatted = fals
  * @param float $value
  * @param float $percentage
  * @param int $included
- * @return float
+ * @return string
  */
-function getVatTotal(float $value, float $percentage, int $included): float
+function getVatTotal(float $value, float $percentage, int $included): string
 {
     $included = (bool)$included;
     $vatSubtracted = getExcludingVat($value, $percentage);
     if ($included) {
-        return round(($value - $vatSubtracted), 2);
+        return number_format(round(($value - $vatSubtracted), 2), 2);
     }
-    return round(((($value / 100) * $percentage)), 2);
+    return number_format(round(((($value / 100) * $percentage)), 2), 2);
 }
 

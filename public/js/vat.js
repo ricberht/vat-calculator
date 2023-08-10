@@ -1,16 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     $(document).ready(function ($) {
-        $('#percentage').on('keyup', function () {
-            let input = $(this).val();
-            let parsed = parseFloat(input);
-            if (input === "") {
-                console.log("Input cannot be empty");
-            } else if (!isNaN(parsed) && parsed.toString() === input) {
-                console.log("not a number");
-            } else if (parsed > 100 || parsed < 0.01) {
-                console.log("invalid percentage");
+        function addAlert(message) {
+            $("#btn-save").prop('disabled', true);
+            let messageHtml = "<p><strong>Error:</strong> " + message + "</p>";
+            if ($(".alert.alert-danger").length) {
+                $(".alert.alert-danger").html(messageHtml);
             } else {
-                console.log("remove warning");
+                $("#vatForm").prepend('<div class="alert alert-danger">' + messageHtml + '</div>')
+            }
+        }
+
+        $("#vatForm").on('mouseup keyup click mousemove', function () {
+            let inputPercent = $("#percentage").val().trim();
+            let parsedPercent = parseFloat(inputPercent);
+            let inputVal = $("#value").val().trim();
+            let parsedVal = parseFloat(inputVal);
+            if (inputVal === "") {
+                addAlert("Monetary value cannot be empty");
+            } else if (isNaN(parsedVal) && parsedVal.toString() !== inputVal) {
+                addAlert("Monetary value must be a number");
+            } else if (inputPercent === "") {
+                addAlert("Percentage input cannot be empty");
+            } else if (isNaN(parsedPercent) && parsedPercent.toString() !== inputPercent) {
+                addAlert("Percentage must be a number");
+            } else if (parsedPercent > 100 || parsedPercent < 0.01) {
+                addAlert("Percentage must be between 0.01% and 100%.");
+            } else {
+                if ($(".alert.alert-danger").length) {
+                    $(".alert.alert-danger").remove();
+                }
+                $("#btn-save").prop('disabled', false);
             }
         });
 
