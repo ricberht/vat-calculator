@@ -4,6 +4,7 @@
 
 Please do the following:
 
+- be running php 8.1
 - composer install
 - php artisan migrate
 - php artisan serve

@@ -12,6 +12,7 @@ class Vat extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
      */
     public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
