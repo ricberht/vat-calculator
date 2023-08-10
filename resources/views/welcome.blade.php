@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label for="percentage">VAT Percentage</label>
                                             <input type="number" min="1" max="100" required class="form-control" id="percentage" name="percentage" placeholder="Vat Percentage" value="">
-                                            <p>(Percent is limited to 100)</p>
+                                            <p>(Percent must be between 0.01 and 100.</p>
                                         </div>
                                     </form>
                                 </div>

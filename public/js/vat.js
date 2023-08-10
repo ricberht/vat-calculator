@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 addAlert("Monetary value cannot be empty");
             } else if (isNaN(parsedVal) && parsedVal.toString() !== inputVal) {
                 addAlert("Monetary value must be a number");
+            } else if (parsedVal < 0.01) {
+                addAlert("Monetary value must be 0.01 or greater!");
             } else if (inputPercent === "") {
                 addAlert("Percentage input cannot be empty");
             } else if (isNaN(parsedPercent) && parsedPercent.toString() !== inputPercent) {

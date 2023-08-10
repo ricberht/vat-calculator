@@ -15,6 +15,7 @@ class Vat extends Controller
      */
     public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
+        //returns homepage for the vat calculator
         $vatCalculator = VatCalculator::all();
         return view('welcome')
             ->with(compact('vatCalculator'));
@@ -27,6 +28,9 @@ class Vat extends Controller
      */
     public function store(Request $request): string
     {
+        // you can NEVER trust frontend user input,
+        // if any of these requirements are not met,
+        // the db will not be queried
         $data = $request->validate([
             'value' => 'required|numeric|min:0',
             'percentage' => 'required|numeric|min:0',

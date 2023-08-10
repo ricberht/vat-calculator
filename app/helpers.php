@@ -4,7 +4,7 @@
  * @param float $value
  * @param float $percentage
  * @param bool $formatted
- * @return float|string
+ * @return float|string|int
  */
 function getIncludingVat(float $value, float $percentage, bool $formatted = false)
 {
@@ -20,7 +20,7 @@ function getIncludingVat(float $value, float $percentage, bool $formatted = fals
  * @param float $value
  * @param float $percentage
  * @param bool $formatted
- * @return float|string
+ * @return float|string|int
  */
 function getExcludingVat(float $value, float $percentage, bool $formatted = false)
 {

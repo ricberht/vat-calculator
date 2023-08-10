@@ -5,17 +5,6 @@ use App\Http\Controllers\Vat;
 use App\Models\VatCalculator;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', [Vat::class, 'index']);
 Route::resource('vat', Vat::class);
 Route::resource('clear', Clear::class);
