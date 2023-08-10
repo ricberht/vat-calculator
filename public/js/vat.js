@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let display = "No";
             let vatSubtracted = '';
             let vatIncluded = '';
-            let vatCost = ((value / 100) * percent).toFixed(2);
+            let vatCost = ((value / 100) * percent);
             if (included) {
                 display = "Yes";
                 vatSubtracted = ((value / (percent + 100)) * 100).toFixed(2);
